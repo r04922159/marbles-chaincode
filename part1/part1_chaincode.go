@@ -276,20 +276,20 @@ func (t *SimpleChaincode) set_user(stub *shim.ChaincodeStub, args []string) ([]b
 	}
 	
 	fmt.Println("- start set user")
-	fmt.Println(args[0] + " - " + args[1])
-	marbleAsBytes, err := stub.GetState(args[0])
-	if err != nil {
-		return nil, errors.New("Failed to get thing")
-	}
-	res := Marble{}
-	json.Unmarshal(marbleAsBytes, &res)										//un stringify it aka JSON.parse()
-	res.User = args[1]														//change the user
-	
-	jsonAsBytes, _ := json.Marshal(res)
-	err = stub.PutState(args[0], jsonAsBytes)								//rewrite the marble with id as key
-	if err != nil {
-		return nil, err
-	}
+	//fmt.Println(args[0] + " - " + args[1])
+	//marbleAsBytes, err := stub.GetState(args[0])
+	//if err != nil {
+	//	return nil, errors.New("Failed to get thing")
+	//}
+	//res := Marble{}
+	//json.Unmarshal(marbleAsBytes, &res)										//un stringify it aka JSON.parse()
+	//res.User = args[1]														//change the user
+	//
+	//jsonAsBytes, _ := json.Marshal(res)
+	//err = stub.PutState(args[0], jsonAsBytes)								//rewrite the marble with id as key
+	//if err != nil {
+	//	return nil, err
+	//}
 	
 	fmt.Println("- end set user")
 	return nil, nil
